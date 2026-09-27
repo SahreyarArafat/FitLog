@@ -16,13 +16,13 @@ export default function Navbar() {
                     <span>FITLOG</span>
                 </Link>
 
-                {/* Middle Navigation Links (Hidden on small mobile screens, visible on md and up) */}
+                {/* Middle Navigation Links  */}
                 <div className="hidden md:flex items-center gap-6">
                     <Link
                         href="/"
                         className={`text-sm font-medium transition-colors ${pathname === '/'
-                                ? 'text-[#ccff00] bg-[#1a2e05] px-3 py-1.5 rounded-full border border-[#ccff00]/30'
-                                : 'text-neutral-400 hover:text-white'
+                            ? 'text-[#ccff00] bg-[#1a2e05] px-3 py-1.5 rounded-full border border-[#ccff00]/30'
+                            : 'text-neutral-400 hover:text-white'
                             }`}
                     >
                         Workouts
@@ -30,15 +30,15 @@ export default function Navbar() {
                     <Link
                         href="/my-plan"
                         className={`text-sm font-medium transition-colors ${pathname === '/my-plan'
-                                ? 'text-[#ccff00] bg-[#1a2e05] px-3 py-1.5 rounded-full border border-[#ccff00]/30'
-                                : 'text-neutral-400 hover:text-white'
+                            ? 'text-[#ccff00] bg-[#1a2e05] px-3 py-1.5 rounded-full border border-[#ccff00]/30'
+                            : 'text-neutral-400 hover:text-white'
                             }`}
                     >
                         My Plan
                     </Link>
                 </div>
 
-                {/* Right Badges / Status Counters */}
+                {/* Right  */}
                 <div className="flex items-center gap-2 sm:gap-3 text-xs font-semibold text-neutral-300 shrink-0">
                     <Link href="/my-plan" className="flex items-center gap-1.5 bg-neutral-900 border border-neutral-800 px-2.5 py-1 rounded-full">
                         <span>Plan</span>

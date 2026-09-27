@@ -7,9 +7,9 @@ export default function HomePage() {
         <div className="bg-[#0a0a0a] min-h-screen text-white flex flex-col justify-between">
 
             <main>
-                {/* Hero / Banner Section */}
+                {/* Hero Section */}
                 <Hero />
-                {/* Library Section (Includes Sorting Dropdown & Cards Grid) */}
+                {/* Library Section  */}
                 <Library />
             </main>
 

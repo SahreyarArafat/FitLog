@@ -54,7 +54,7 @@ export default function WorkoutDetailPage() {
             <main className="max-w-7xl mx-auto px-6 py-12 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-                    {/* Left Side — Visual / Media */}
+                    {/* Left Side - Image */}
                     <div className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden p-4">
                         <img
                             src={workout.image}
@@ -81,7 +81,7 @@ export default function WorkoutDetailPage() {
                             ))}
                         </div>
 
-                        {/* Key Specs Table / Panel */}
+                        {/* Key Specs Table */}
                         <div className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden mb-8">
                             <div className="grid grid-cols-2 divide-x divide-y divide-neutral-800 text-xs">
                                 <SpecItem label="EQUIPMENT" value={workout.equipment} />
@@ -113,7 +113,7 @@ export default function WorkoutDetailPage() {
                             </ol>
                         </div>
 
-                        {/* Call-to-Action Buttons */}
+                        {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
                                 onClick={() => addToPlan(workout)}

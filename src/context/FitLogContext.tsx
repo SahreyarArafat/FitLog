@@ -63,7 +63,7 @@ export const FitLogProvider = ({ children }: { children: React.ReactNode }) => {
                 fontSize: '12px',
                 fontWeight: 'bold',
             },
-            icon: '⚡',
+            icon: '♦️',
         });
     };
 

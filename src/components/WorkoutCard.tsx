@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Workout } from '@/context/FitLogContext';
 
 export default function WorkoutCard({ workout }: { workout: Workout }) {
-    // Handle both 'category' and 'muscleGroups' field possibilities from the API
+    // Handle API
     const rawCategories = (workout as any).muscleGroups || workout.category;
     const categories = Array.isArray(rawCategories)
         ? rawCategories
@@ -20,7 +20,7 @@ export default function WorkoutCard({ workout }: { workout: Workout }) {
                     />
                 </div>
                 <div className="p-5">
-                    {/* Category Pill Tags matching the Figma design */}
+                    {/* Category tags */}
                     <div className="flex gap-2 mb-3 flex-wrap">
                         {categories.map((cat: string, idx: number) => (
                             <span
@@ -41,7 +41,7 @@ export default function WorkoutCard({ workout }: { workout: Workout }) {
                 </div>
             </div>
 
-            {/* Stats row with precise SVG vector icons matching design */}
+
             <div className="px-5 pb-5 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-xs text-neutral-300 font-medium">
                 <span className="flex items-center gap-1.5 text-neutral-400">
                     <svg className="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ export default function WorkoutCard({ workout }: { workout: Workout }) {
                 </span>
             </div>
 
-            {/* Hidden or card wrapper link behavior depending on design. Clicking anywhere or card structure */}
+
             <div className="px-5 pb-5 pt-0">
                 <Link
                     href={`/workouts/${workout.id}`}

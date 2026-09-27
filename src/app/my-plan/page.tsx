@@ -11,7 +11,7 @@ export default function MyPlanPage() {
     const totalMinutes = plan.reduce((acc, curr) => acc + curr.duration, 0);
     const totalCalories = plan.reduce((acc, curr) => acc + (curr.caloriesBurned ?? (curr as any).caloriesBurned ?? 0), 0);
 
-    // Sorting helper function
+    //  helper function
     const sortWorkouts = (items: Workout[]) => {
         return [...items].sort((a, b) => {
             const calA = a.caloriesBurned ?? (a as any).caloriesBurned ?? 0;
@@ -110,7 +110,6 @@ export default function MyPlanPage() {
                 )
             ) : (
                 sortedSaved.length === 0 ? (
-                    // <div className="text-center py-16 text-neutral-500">No saved workouts yet.</div>
                     <EmptyState />
 
                 ) : (

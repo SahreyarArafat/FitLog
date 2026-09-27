@@ -24,7 +24,7 @@ export default function Hero() {
 
             <div className="flex justify-center lg:justify-end">
                 <div className=" w-full max-w-md flex items-center justify-center">
-                    {/* Hero Banner Illustration Placeholder or Image */}
+                    {/* Hero Image */}
                     <img
                         src="/banner.png"
                         alt="Workout Banner"
