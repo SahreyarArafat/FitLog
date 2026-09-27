@@ -24,7 +24,7 @@ export default function RootLayout({
         <FitLogProvider>
           <Navbar />
           {children}
-          <Toaster position="bottom-right" />
+          <Toaster position="top-right" />
           <Footer />
         </FitLogProvider>
       </body>
