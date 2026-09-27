@@ -6,7 +6,6 @@ import { Workout } from '@/context/FitLogContext';
 export default function Library() {
     const [workouts, setWorkouts] = useState<Workout[]>([]);
     const [loading, setLoading] = useState(true);
-    const [sortBy, setSortBy] = useState<'duration' | 'calories' | 'rating'>('duration');
 
     useEffect(() => {
         fetch('https://api.abcz.workers.dev/api/fitlog')
@@ -20,13 +19,6 @@ export default function Library() {
                 setLoading(false);
             });
     }, []);
-
-    const sortedWorkouts = [...workouts].sort((a, b) => {
-        if (sortBy === 'duration') return a.duration - b.duration;
-        if (sortBy === 'calories') return b.caloriesBurned - a.caloriesBurned;
-        if (sortBy === 'rating') return b.rating - a.rating;
-        return 0;
-    });
 
     if (loading) {
         return (
@@ -46,7 +38,7 @@ export default function Library() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sortedWorkouts.map((workout) => (
+                {workouts.map((workout) => (
                     <WorkoutCard key={workout.id} workout={workout} />
                 ))}
             </div>
