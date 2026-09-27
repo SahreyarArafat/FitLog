@@ -9,13 +9,13 @@ export default function MyPlanPage() {
     const [sortBy, setSortBy] = useState<'duration' | 'calories' | 'rating'>('duration');
 
     const totalMinutes = plan.reduce((acc, curr) => acc + curr.duration, 0);
-    const totalCalories = plan.reduce((acc, curr) => acc + (curr.caloriesBurned ?? (curr as any).caloriesBurned ?? 0), 0);
+    const totalCalories = plan.reduce((acc, curr) => acc + (curr.caloriesBurned ?? (curr as any).calories ?? 0), 0);
 
-    //  helper function
+    // Robust helper function checking all possible calorie property keys
     const sortWorkouts = (items: Workout[]) => {
         return [...items].sort((a, b) => {
-            const calA = a.caloriesBurned ?? (a as any).caloriesBurned ?? 0;
-            const calB = b.caloriesBurned ?? (b as any).caloriesBurned ?? 0;
+            const calA = a.caloriesBurned ?? (a as any).calories ?? 0;
+            const calB = b.caloriesBurned ?? (b as any).calories ?? 0;
 
             if (sortBy === 'duration') return a.duration - b.duration;
             if (sortBy === 'calories') return calB - calA;
@@ -48,7 +48,7 @@ export default function MyPlanPage() {
                 </div>
             </div>
 
-            {/* Tabs & Sort Dropdown Row */}
+            {/* Tabs & Styled Sort Dropdown Row */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-neutral-800 pb-4 mb-8">
                 <div className="flex gap-4">
                     <button
@@ -67,17 +67,17 @@ export default function MyPlanPage() {
                     </button>
                 </div>
 
-                {/* Sort Dropdown */}
-                <div className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-lg">
-                    <span className="text-xs text-neutral-400">Sort By:</span>
+                {/* Styled Sort Dropdown */}
+                <div className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 px-3 py-1.5 rounded-xl">
+                    <span className="text-[14px] text-neutral-400 font-medium">Sort By:</span>
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value as any)}
-                        className="bg-transparent text-white text-xs font-semibold focus:outline-none cursor-pointer"
+                        className="bg-neutral-900 text-[#ccff00] text-[14px] font-bold focus:outline-none cursor-pointer p-1.5 rounded-lg border border-neutral-700"
                     >
-                        <option value="duration" className="bg-neutral-900">Duration</option>
-                        <option value="calories" className="bg-neutral-900">Calories</option>
-                        <option value="rating" className="bg-neutral-900">Rating</option>
+                        <option value="duration" className="bg-neutral-900 text-white">Duration</option>
+                        <option value="calories" className="bg-neutral-900 text-white">Calories</option>
+                        <option value="rating" className="bg-neutral-900 text-white">Rating</option>
                     </select>
                 </div>
             </div>
@@ -110,8 +110,7 @@ export default function MyPlanPage() {
                 )
             ) : (
                 sortedSaved.length === 0 ? (
-                    <EmptyState />
-
+                    <div className="text-center py-16 text-neutral-500">No saved workouts yet.</div>
                 ) : (
                     <div className="space-y-4">
                         {sortedSaved.map((item) => (

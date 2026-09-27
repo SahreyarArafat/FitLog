@@ -24,7 +24,14 @@ export default function RootLayout({
         <FitLogProvider>
           <Navbar />
           {children}
-          <Toaster position="top-right" />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                marginTop: '60px',
+              },
+            }}
+          />
           <Footer />
         </FitLogProvider>
       </body>
